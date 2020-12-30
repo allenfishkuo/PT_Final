@@ -21,7 +21,7 @@ path_to_compare = "./newstdcompare2016/"
 ext_of_compare = "_table.csv"
 
 
-path_to_python ="C:/Users/Allen/pair_trading_DL4"
+path_to_python ="C:/Users/Allen/PT_Final"
 path=os.path.dirname(os.path.abspath(__file__))+'/results/'
 path_to_all_gt = "./gt_25action_1228/"
 ext_of_groundtruth = "_ground truth.csv"
