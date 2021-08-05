@@ -443,7 +443,7 @@ def model_train(loader_train,loader_test):
             total_profit.append(profit)
             #test_accuracy = 100 * correct_test / total_test          #avg_accuracy = train_accuracy / len(train_loader)
             print('Epoch {}, test Loss: {:.5f}'.format(epoch+1, loss.item()), "Testing winrate: %.2f %%" % (profit))
-            if train_accuracy >= 50  :
+            if train_accuracy >= 90 and profit > big_profit  :
                 big_profit = profit
                 torch.save(msresnet,"2016-2016input_S_P.pkl")
             

@@ -420,7 +420,7 @@ def model_train(loader_train):
             print('Epoch {}, train Loss: {:.5f}'.format(epoch+1, loss.item()), "Training Accuracy: %.2f %%" % (train_accuracy))
             #print(action_list)
             train_acc.append(train_accuracy)
-            torch.save(msresnet,"2013-2014training_stucturebreak(ST)(M3).pkl")
+            torch.save(msresnet,"2015-2016training_stucturebreak(ST)(M3).pkl")
             
     draw(train_loss,train_acc)
 def draw(train_loss, train_acc):

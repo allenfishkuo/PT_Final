@@ -40,7 +40,7 @@ path_to_2015compare = "./newstdcompare2015/"
 path_to_2016compare = "./newstdcompare2016/" 
 path_to_2017compare = "./newstdcompare2017/" #"./new_cluster_2017/5min_moving/"
 #path_to_2017compare = "./new_cluster_2017/5min/"
-path_to_2018compare = "./newstdcomparedtw2018/" 
+path_to_2018compare = "./newstdcompare2018/" 
 
 
 path_to_2018compare = "./newstdcompare2018/" 
@@ -67,7 +67,6 @@ min_max_scaler = preprocessing.MinMaxScaler()
 SS = StandardScaler()
 read_coverge_time = False
 normalize_spread = False
-input_of_three = False
 Use_avg = False
 def read_data():
     number_of_kmean = 25
@@ -190,24 +189,24 @@ def read_data():
     print(np.any(np.isnan(train_label)))
     
     return train_data, train_label, test_data, test_label
-path_to_threshold = "./model/2013-2014_amsgrad_0120(M3)/threshold_label(ST)/"
+path_to_threshold = "./model/2015-2016_amsgrad_0120(M3)/"
 def find_threshold_data():
-    path_to_minprice = "./2015/minprice/"
+    path_to_minprice = "./2017/minprice/"
     trading_cost_threshold = np.arange(0.0025,0.008,0.0005)
     number_of_label = len(trading_cost_threshold)
     count_trading_cost_threshold = [0] * number_of_label
     find_threshold_data = []
     #counts = [0,0,0,0,0]
-    datelist = [f.split('_')[0] for f in os.listdir(path_to_2015compare)]
+    datelist = [f.split('_')[0] for f in os.listdir(path_to_2017compare)]
     month_list =[]
     #print(datelist)
     count = 0
     for date in sorted(datelist[:]): 
        # if date[:6] == '201611' or date[:6] == '201612':
             count +=1
-            table = pd.read_csv(path_to_2015compare+date+ext_of_compare)
-            if Use_avg : avgmin = pd.read_csv(path_to_2015avg+date+ext_of_average)
-            else : halfmin = pd.read_csv(path_to_2015half+date+ext_of_half)            
+            table = pd.read_csv(path_to_2017compare+date+ext_of_compare)
+            if Use_avg : avgmin = pd.read_csv(path_to_2017avg+date+ext_of_average)
+            else : halfmin = pd.read_csv(path_to_2017half+date+ext_of_half)            
             try:
                 tickdata = pd.read_csv(path_to_minprice+date+ext_of_minprice).drop([266, 267, 268, 269, 270])
             except:
@@ -245,22 +244,22 @@ def find_threshold_data():
 
     return find_threshold_data
 def val_data():
-    path_to_minprice = "./2015/minprice/"
+    path_to_minprice = "./2017/minprice/"
     number_of_label = 2
     count_trading_cost_threshold = [0] * number_of_label
     threshold_data = []
     threshold_label = []
     #counts = [0,0,0,0,0]
-    datelist = [f.split('_')[0] for f in os.listdir(path_to_2015compare)]
+    datelist = [f.split('_')[0] for f in os.listdir(path_to_2017compare)]
     month_list =[]
     #print(datelist)
     count = 0
     for date in sorted(datelist[:]): 
        # if date[:6] == '201611' or date[:6] == '201612':
             count +=1
-            table = pd.read_csv(path_to_2015compare+date+ext_of_compare)
-            if Use_avg : avgmin = pd.read_csv(path_to_2015avg+date+ext_of_average)
-            else : halfmin = pd.read_csv(path_to_2015half+date+ext_of_half)       
+            table = pd.read_csv(path_to_2017compare+date+ext_of_compare)
+            if Use_avg : avgmin = pd.read_csv(path_to_2017avg+date+ext_of_average)
+            else : halfmin = pd.read_csv(path_to_2017half+date+ext_of_half)       
             try:
                 tickdata = pd.read_csv(path_to_minprice+date+ext_of_minprice).drop([266, 267, 268, 269, 270])
             except:
@@ -320,7 +319,7 @@ def val_data():
 
 test_period = {2016 : [path_to_2016compare , path_to_2016avg, path_to_2016half],2017 :[path_to_2017compare , path_to_2017avg, path_to_2017half],2018 : [path_to_2018compare , path_to_2018avg, path_to_2018half]}
 
-time = 2018
+time = 2017
 
 def test_data():
     whole_year = []

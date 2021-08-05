@@ -18,17 +18,17 @@ import matplotlib.pyplot as plt
 import trading_period_by_gate_mean_new
 import csv
 import random
-path_to_average = "./2015/averageprice/"
+path_to_average = "./2017/averageprice/"
 ext_of_average = "_averagePrice_min.csv"
-path_to_minprice = "./2015/minprice/"
+path_to_minprice = "./2017/minprice/"
 ext_of_minprice = "_min_stock.csv"
-path_to_compare = "./newstdcompare2015/"
+path_to_compare = "./newstdcompare2017/"
 ext_of_compare = "_table.csv"
 
 
 path_to_python ="C:/Users/Allen/PT_Final"
 path=os.path.dirname(os.path.abspath(__file__))+'/results/'
-path_to_all_gt = "./model/2013-2014_amsgrad_0120(M3)/threshold_label(ST)/"
+path_to_all_gt = "./model/2015-2016_amsgrad_0120(M3)/"
 ext_of_groundtruth = "_ground truth.csv"
 max_posion = 5
 numbers_of_kmeans = 25
@@ -47,7 +47,7 @@ def find_trading_cost_threshold():
     """
     threshold = np.arange(0.0025,0.008,0.0005)
     action_list=[]
-    Net = torch.load('2013-2014_amsgrad_0120(M3).pkl')
+    Net = torch.load('./Deep_learning_model/2015-2016_anasgrad_(M3)1.pkl')
     Net.eval()
     #print(Net)
     val_year = new_dataloader.find_threshold_data()
