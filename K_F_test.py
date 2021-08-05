@@ -103,10 +103,10 @@ for year in range(3,len(dic_compare)-1):
 
             gt = pd.read_csv(dic_compare[year]+date+ext_of_compare,usecols=["Emu","Estd","model_type"])
 
-            if date[:6] =="201611" :
+            if date[:6] =="201610" :
                 data_train = pd.concat([data_train,gt["Emu"]],ignore_index = True )
                 data_train2 = pd.concat([data_train2,gt["Estd"]],ignore_index = True )
-            if  date[:6] == "201612" :
+            if  date[:6] == "201611" :
                 data_test = pd.concat([data_test,gt["Emu"]],ignore_index = True )
                 data_test2 = pd.concat([data_test2,gt["Estd"]],ignore_index = True )
 
@@ -121,7 +121,7 @@ for year in range(3,len(dic_compare)-1):
                 return3 = ((avgmin[str(table.stock1[pair])][17:167].values-avgmin[str(table.stock1[pair])][16:166].values)/avgmin[str(table.stock1[pair])][16:166].values).std()   
                 return4 = ((avgmin[str(table.stock2[pair])][17:167].values-avgmin[str(table.stock2[pair])][16:166].values)/avgmin[str(table.stock2[pair])][16:166].values).std()
 
-                if date[:6] == "201611"   :
+                if date[:6] == "201610"   :
                     #print(mindata1)
                     sp_train.append(mindata1)
                     sp_train.append(mindata2)
@@ -131,7 +131,7 @@ for year in range(3,len(dic_compare)-1):
                     return_train.append(return2)
                     return_train_std.append(return3)
                     return_train_std.append(return4)
-                if  date[:6] == "201612" :
+                if  date[:6] == "201611" :
                     sp_test.append(mindata1)
                     sp_test.append(mindata2)
                     sp_test_std.append(mindata3)
